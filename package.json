@@ -1,0 +1,12 @@
+{
+  "name": "consultancy-website-template",
+  "version": "1.0.0",
+  "description": "",
+  "main": "js/main.js",
+  "scripts": {
+    "test": "test",
+    "dev": "dev"
+  },
+  "author": "",
+  "license": "ISC"
+}
