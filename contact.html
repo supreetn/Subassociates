@@ -6,10 +6,9 @@
     
 
     <meta charset="utf-8">
-    <title>SUB Associates, LLC - Consultancy Website Template</title>
+    <title>SUB Associates, LLC</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
-    <meta content="Free HTML Templates" name="keywords">
-    <meta content="Free HTML Templates" name="description">
+
 
     <!-- Favicon -->
     <link href="img/favicon.ico" rel="icon">
@@ -116,9 +115,9 @@
     <!-- Page Header End -->
 
 
-    <div class="container-fluid bg-secondary p-0">
+    <div class="container-fluid bg-secondary">
         <div class="row g-5">
-            <!-- <div class="col-lg-6 py-6 px-5"> -->
+           <div class="px-5">
                 <!-- <h1 class="display-5 mb-4">Welcome To <span class="text-primary">Sub associates</span></h1>
                 <h4 class="text-primary mb-4">Bridging Gaps
                     with Passion since 2003.</h4> -->
@@ -144,59 +143,52 @@
             </div>
 
     <!-- Contact Start -->
-    <div class="container-fluid bg-secondary px-0">
-        <div class="row g-0">
-            <!-- <div class="col-lg-6 py-6 px-5"> -->
-                <h1 class=" p-3 text-uppercase text-dark" style="font-size: xx-large; font-family: Georgia, 'Times New Roman', Times, serif">Interested?
-                    Contact Us Below</h1>
-                <form>
-                    <div class="row g-3">
-                        <div class="col-6">
-                            <div class="form-floating">
-                                <input type="text" class="form-control" id="form-floating-1" placeholder="John Doe">
-                                <label for="form-floating-1">Full Name</label>
-                            </div>
-                        </div>
-                        <div class="col-6">
-                            <div class="form-floating">
-                                <input type="email" class="form-control" id="form-floating-2" placeholder="supreetha.naik@sjsu.edu">
-                                <label for="form-floating-2">Email address</label>
-                            </div>
-                        </div>
-                        <div class="col-12">
-                            <div class="form-floating">
-                                <input type="file" class="form-control" id="Resume" placeholder="Resume">
-                                <label for="form-floating-3">Resume</label>
-                            </div>
-                        </div>
-                        <div class="col-12">
-                            <div class="form-floating">
-                                <input type="text" class="form-control" id="form-floating-3" placeholder="Subject">
-                                <label for="form-floating-3">Subject</label>
-                            </div>
-                        </div>
-                        <div class="col-12">
-                            <div class="form-floating">
-                                <textarea class="form-control" placeholder="Message" id="form-floating-4" style="height: 150px"></textarea>
-                                <label for="form-floating-4">Message to the hiring manager</label>
-                              </div>
-                        </div>
-                        <div class="col-12">
-                            <button class="btn btn-dark w-100 py-3" type="submit">Submit</button>
+<div class="container-fluid bg-secondary px-0">
+    <div class="row g-0">
+        <div class="py-1 px-5">
+            <h1 class=" p-3 text-uppercase text-dark" style="font-size: xx-large; font-family: Georgia, 'Times New Roman', Times, serif">Interested? Contact Us Below</h1>
+            <form action="send_email.php" method="post" enctype="multipart/form-data">
+                <div class="row g-3">
+                    <div class="col-6">
+                        <div class="form-floating">
+                            <input type="text" class="form-control" name="full_name" id="form-floating-1" placeholder="John Doe">
+                            <label for="form-floating-1">Full Name</label>
                         </div>
                     </div>
-                </form>
-            </div>
-            <!-- <div class="col-lg-6" style="min-height: 400px;">
-                <div class="position-relative h-100">
-                    <iframe class="position-relative w-100 h-100"
-                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3001156.4288297426!2d-78.01371936852176!3d42.72876761954724!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4ccc4bf0f123a5a9%3A0xddcfc6c1de189567!2sNew%20York%2C%20USA!5e0!3m2!1sen!2sbd!4v1603794290143!5m2!1sen!2sbd"
-                        frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+                    <div class="col-6">
+                        <div class="form-floating">
+                            <input type="email" class="form-control" name="email" id="form-floating-2" placeholder="supreetha.naik@sjsu.edu">
+                            <label for="form-floating-2">Email address</label>
+                        </div>
+                    </div>
+                    <div class="col-12">
+                        <div class="form-floating">
+                            <input type="file" class="form-control" name="attachment" id="Resume" placeholder="Resume">
+                            <label for="form-floating-3">Resume</label>
+                        </div>
+                    </div>
+                    <div class="col-12">
+                        <div class="form-floating">
+                            <input type="text" class="form-control" name="subject" id="form-floating-3" placeholder="Subject">
+                            <label for="form-floating-3">Subject</label>
+                        </div>
+                    </div>
+                    <div class="col-12">
+                        <div class="form-floating">
+                            <textarea class="form-control" name="message" placeholder="Message" id="form-floating-4" style="height: 150px"></textarea>
+                            <label for="form-floating-4">Message to the hiring manager</label>
+                        </div>
+                    </div>
+                    <div class="col-12">
+                        <button class="btn btn-dark w-100 py-3" type="submit">Submit</button>
+                    </div>
                 </div>
-            </div> -->
+            </form>
         </div>
     </div>
-    <!-- Contact End -->
+</div>
+<!-- Contact End -->
+
 
 
     <!-- Footer Start -->
@@ -218,9 +210,9 @@
             <div class="col-lg-3 col-md-6">
                 <h3 class="text-dark mb-4">Quick Links</h3>
                 <div class="d-flex flex-column justify-content-start">
-                    <a class="text-dark mb-2" href="\consultancy-website-template\index.html"><i class="bi bi-arrow-right text-dark me-2"></i>Home</a>
-                    <a class="text-dark mb-2" href="\consultancy-website-template\about.html"><i class="bi bi-arrow-right text-dark me-2"></i>About Us</a>
-                    <a class="text-dark mb-2" href="\consultancy-website-template\service.html"><i class="bi bi-arrow-right text-dark me-2"></i>Our Services</a>
+                    <a class="text-dark mb-2" href="index.html"><i class="bi bi-arrow-right text-dark me-2"></i>Home</a>
+                    <a class="text-dark mb-2" href="about.html"><i class="bi bi-arrow-right text-dark me-2"></i>About Us</a>
+                    <a class="text-dark mb-2" href="service.html"><i class="bi bi-arrow-right text-dark me-2"></i>Our Services</a>
                     <!-- <a class="text-secondary mb-2" href="#"><i class="bi bi-arrow-right text-primary me-2"></i>Latest Blog Post</a> -->
                     <!-- <a class="text-secondary" href="#"><i class="bi bi-arrow-right text-primary me-2"></i>Contact Us</a> -->
                 </div>
