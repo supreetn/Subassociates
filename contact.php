@@ -1,49 +1,40 @@
 <?php
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Retrieve form data
-    $full_name = $_POST["full_name"];
-    $email = $_POST["email"];
-    $subject = $_POST["subject"];
-    $message = $_POST["message"];
+    $name = $_POST['name'];
+    $email = $_POST['email'];
+    $subject = $_POST['subject'];
+    $message = $_POST['message'];
 
-    // File upload
-    if ($_FILES['attachment']['error'] == UPLOAD_ERR_OK) {
-        $attachment_name = $_FILES['attachment']['name'];
-        $attachment_tmp_name = $_FILES['attachment']['tmp_name'];
-    }
+    // File attachment
+    $file = $_FILES['attachment'];
+    $attachment = chunk_split(base64_encode(file_get_contents($file['tmp_name'])));
+    $filename = $file['name'];
 
-    // Prepare email content
-    $to = "anchu.nandi@gmail.com"; // Your email address
-    $subject = $subject;
-    $message_body = "Full Name: $full_name\n";
-    $message_body .= "Email: $email\n\n";
-    $message_body .= "Message:\n$message";
+    // Email headers
+    $headers = "From: $name <$email>\r\n";
+    $headers .= "MIME-Version: 1.0\r\n";
+    $headers .= "Content-Type: multipart/mixed; boundary=\"boundary\"\r\n";
 
-    // Send email with attachment
-    $headers = "From: $email";
-    $headers .= "\r\nMIME-Version: 1.0\r\n";
-    $headers .= "Content-Type: multipart/mixed; boundary=\"mixed_separator\"";
-    $message = "--mixed_separator\r\n";
-    $message .= "Content-type: text/plain; charset=\"UTF-8\"\r\n";
-    $message .= "Content-Transfer-Encoding: 8bit\r\n\r\n";
-    $message .= "$message_body\r\n";
-    if ($_FILES['attachment']['error'] == UPLOAD_ERR_OK) {
-        $file_content = file_get_contents($attachment_tmp_name);
-        $message .= "--mixed_separator\r\n";
-        $message .= "Content-Type: application/octet-stream; name=\"$attachment_name\"\r\n";
-        $message .= "Content-Disposition: attachment\r\n";
-        $message .= "Content-Transfer-Encoding: base64\r\n";
-        $message .= "\r\n";
-        $message .= chunk_split(base64_encode($file_content)) . "\r\n";
-    }
-    $message .= "--mixed_separator--";
+    // Email body
+    $body = "--boundary\r\n";
+    $body .= "Content-Type: text/plain; charset=\"UTF-8\"\r\n";
+    $body .= "Content-Transfer-Encoding: 7bit\r\n\r\n";
+    $body .= "$message\r\n";
+    $body .= "--boundary\r\n";
+    $body .= "Content-Type: application/octet-stream; name=\"$filename\"\r\n";
+    $body .= "Content-Transfer-Encoding: base64\r\n";
+    $body .= "Content-Disposition: attachment\r\n\r\n";
+    $body .= "$attachment\r\n";
+    $body .= "--boundary--";
 
-    if (mail($to, $subject, $message, $headers)) {
-        echo "Thank you! Your message with attachment has been sent.";
+    // Send email
+    $success = mail('anchu.nandi@gmail.com.com', $subject, $body, $headers);
+
+    if ($success) {
+        echo "Email sent successfully!";
     } else {
-        echo "Sorry, there was an error sending your message. Please try again later.";
+        echo "Failed to send email. Please try again later.";
     }
-} else {
-    header("Location: contact.html");
 }
 ?>
